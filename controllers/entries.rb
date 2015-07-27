@@ -15,9 +15,9 @@ post "/entries" do
   @entry = Entry.new( params[:entry] )
   @entry.update( date_taken: Time.now.strftime("%B %d, %Y") )
   if @entry.save
-    redirect "entries/#{@entry.id}"
+    redirect "/entries/#{@entry.id}"
   else
-    redirect "posts/new"
+    redirect "/entries/new"
   end
 end
 
